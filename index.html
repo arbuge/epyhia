@@ -20,47 +20,51 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       text-align: center;
-      padding: 40px 24px;
+      padding: 40px 24px 24px;
       line-height: 1.6;
     }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
     .logo {
+      display: inline-grid;
       font-size: clamp(3rem, 10vw, 7rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       line-height: 1;
-      margin-bottom: 0.2em;
-      position: relative;
+      margin-bottom: 0.3em;
+      white-space: nowrap;
+      cursor: default;
+      outline: none;
     }
+    /* Stack both words in the same grid cell so the logo keeps its height */
     .logo .front, .logo .back {
-      display: inline-block;
-      transition: all 0.5s ease;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .logo .front {
-      opacity: 1;
+      grid-area: 1 / 1;
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
     .logo .back {
       opacity: 0;
       color: var(--accent);
-      transform: translateX(-50%) scaleX(-1);
+      transform: scaleX(-1);
     }
-    .logo:hover .front {
+    .logo:hover .front, .logo:focus .front {
       opacity: 0;
-      transform: translateX(-50%) scaleX(-1);
+      transform: scaleX(-1);
     }
-    .logo:hover .back {
+    .logo:hover .back, .logo:focus .back {
       opacity: 1;
-      transform: translateX(-50%) scaleX(1);
+      transform: scaleX(1);
     }
     .tagline {
       font-size: clamp(1rem, 2.5vw, 1.4rem);
       color: var(--muted);
       max-width: 600px;
-      margin-bottom: 2em;
     }
     .divider {
       width: 60px;
@@ -73,7 +77,7 @@
       max-width: 560px;
       font-size: 1.05rem;
       color: #999;
-      margin-bottom: 3em;
+      margin-bottom: 2.5em;
     }
     .coming-soon {
       font-size: 0.85rem;
@@ -85,25 +89,26 @@
       border-radius: 999px;
     }
     footer {
-      position: absolute;
-      bottom: 24px;
+      margin-top: 40px;
       font-size: 0.75rem;
       color: #444;
     }
   </style>
 </head>
 <body>
-  <div class="logo">
-    <span class="front">epyhia</span><span class="back">AI HYPE</span>
-  </div>
-  <p class="tagline">Separating AI hype from reality.</p>
-  <div class="divider"></div>
-  <p class="manifesto">
-    Every press release claims a revolution. Every demo is cherry-picked.
-    We're here to flip the script — examining what AI can <em>actually</em> do,
-    who's actually using it, and where the signal ends and the noise begins.
-  </p>
-  <div class="coming-soon">Coming soon</div>
+  <main>
+    <div class="logo" tabindex="0">
+      <span class="front">epyhia</span><span class="back">AI HYPE</span>
+    </div>
+    <p class="tagline">Separating AI hype from reality.</p>
+    <div class="divider"></div>
+    <p class="manifesto">
+      Every press release claims a revolution. Every demo is cherry-picked.
+      We're here to flip the script — examining what AI can <em>actually</em> do,
+      who's actually using it, and where the signal ends and the noise begins.
+    </p>
+    <div class="coming-soon">Coming soon</div>
+  </main>
   <footer>epyhia.com — AI Hype, reversed</footer>
 </body>
 </html>
