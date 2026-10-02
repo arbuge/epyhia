@@ -1,10 +1,12 @@
 # epyhia.com
 
-Static site for epyhia.com deployed via GitHub Actions.
+**AI Hype, reversed.**
+
+A site dedicated to separating AI hype from reality. Because every press release claims a revolution — we're here to flip the script.
 
 ## Deploy
 
-Push to `main` — GitHub Actions builds and deploys automatically.
+Push to `main` — GitHub Actions builds and deploys automatically to GitHub Pages.
 
 ## Custom domain setup
 
